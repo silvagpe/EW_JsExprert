@@ -1,0 +1,7 @@
+nvm install 20
+nvm list
+nvm install --lts
+nvm use <versão>
+nvm alias default <versao>  --seta a versão padrão para quando iniciar um terminal usar com padrão
+
+.nvmrc define a versão do node para aquele projeto, usar o comando nvm use para ativar a versão
