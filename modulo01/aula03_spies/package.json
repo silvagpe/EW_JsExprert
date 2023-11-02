@@ -7,6 +7,9 @@
     "test": "node src/fibonacci.test.js"
   },
   "keywords": [],
+  "engines": {
+    "node": "20"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
