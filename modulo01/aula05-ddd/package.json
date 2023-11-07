@@ -1,0 +1,19 @@
+{
+  "name": "aula03-spies",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/api.js",
+    "seed":"node ./seed "
+  },
+  "keywords": [],
+  "engines": {
+    "node": "20"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.2.0"
+  }
+}
