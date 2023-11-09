@@ -1,5 +1,5 @@
-const BaseRepository = require('./../repository/base/baseRepository')
-const CarCategory = require('./../entities/carCategory')
+const BaseRepository = require('../repository/base/baseRepository')
+const CarCategory = require('../entities/carCategory')
 
 class CarService {
     constructor({ cars }) {
@@ -36,7 +36,7 @@ class CarService {
     async getAvaliableCar(carCategory){
         const carId = this.chooseRandomCar(carCategory)
         const car = await this.carRepository.find(carId)
-
+        
         return car
     }
 

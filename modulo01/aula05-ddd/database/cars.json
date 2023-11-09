@@ -1,1 +1,23 @@
-[{"id":"f5715b0a-5684-4e51-9753-a91ce5073915","name":"Beetle","releaseYear":2023,"avaliable":true,"gasAvaliable":true},{"id":"aad0eac8-779f-4736-81d3-4df8dc057fc6","name":"Spyder","releaseYear":2023,"avaliable":true,"gasAvaliable":true},{"id":"f1a48f00-9644-42ab-b6d0-a31912e77b0b","name":"Corvette","releaseYear":2023,"avaliable":true,"gasAvaliable":true}]
+[
+    {
+        "id": "f5715b0a-5684-4e51-9753-a91ce5073915",
+        "name": "Beetle",
+        "releaseYear": 2023,
+        "avaliable": true,
+        "gasAvaliable": true
+    },
+    {
+        "id": "aad0eac8-779f-4736-81d3-4df8dc057fc6",
+        "name": "Spyder",
+        "releaseYear": 2023,
+        "avaliable": true,
+        "gasAvaliable": true
+    },
+    {
+        "id": "f1a48f00-9644-42ab-b6d0-a31912e77b0b",
+        "name": "Corvette",
+        "releaseYear": 2023,
+        "avaliable": true,
+        "gasAvaliable": true
+    }
+]
