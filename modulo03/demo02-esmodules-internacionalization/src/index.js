@@ -6,8 +6,7 @@ import readline from 'readline'
 import Person from './person.js';
 
 DraftLog(console).addLineListener(process.stdin)
-Person
-
+const DEFAULT_LANGUAGE = "pt-BR"
 const options = {
     leftPad: 2,
     columns:[
@@ -19,7 +18,7 @@ const options = {
     ]
 }
 
-const table = chackTable(options, database.map(item => new Person(item).formatted("pt-BR")))
+const table = chackTable(options, database.map(item => new Person(item).formatted(DEFAULT_LANGUAGE)))
 const print = console.draft(table)
 
 const ternimal = readline.createInterface({

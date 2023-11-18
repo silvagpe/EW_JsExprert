@@ -24,7 +24,7 @@ export default class Person{
                 .NumberFormat(language, {style: "unit", unit:"kilometer"})
                 .format(this.kmTraveled),
             from: new Intl
-                .DateTimeFormat(language)
+                .DateTimeFormat(language, {month:"long", day:"2-digit", year:"numeric"})
                 .format(mapDate(this.from)),
             to: new Intl
                 .DateTimeFormat(language)
