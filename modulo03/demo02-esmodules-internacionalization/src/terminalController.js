@@ -34,6 +34,12 @@ export default class TerminalController{
 
     }
 
+    updateTable(item){
+        this.data.push(item)
+        this.print(chackTable(this.getTableOptions(), this.data))
+
+    }
+
     question(msg){       
         return new Promise(resolve => this.ternimal.question(msg, resolve)); 
         // this.ternimal.question('Qual é seu nome', msg =>{

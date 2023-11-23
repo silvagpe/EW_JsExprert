@@ -1,7 +1,7 @@
 import database from "./../database.json" assert { type: "json" };
 import TerminalController from "./terminalController.js";
 import Person from './person.js'
-
+import { save } from './repository.js'
 const DEFAULT_LANGUAGE = "pt-BR"
 const STOP_TERM = ":q"
 
@@ -10,7 +10,7 @@ terminalController.initializeTerminar(database, DEFAULT_LANGUAGE);
 
 async function mainLoop(){
     try {
-        const answer = await terminalController.question("What?")
+        const answer = await terminalController.question("")
         console.log('Anwer:', answer)
 
         if (answer === STOP_TERM) {
@@ -20,9 +20,11 @@ async function mainLoop(){
         }
 
         const person = Person.generateInstanceFromString(answer);
-        console.log('person', person.formatted(DEFAULT_LANGUAGE))
+        terminalController.updateTable(person.formatted(DEFAULT_LANGUAGE));
+        
+        await save(person);
 
-        mainLoop();
+        return mainLoop();
     } catch (error) {
         console.error("Erro:", error)
         mainLoop();
