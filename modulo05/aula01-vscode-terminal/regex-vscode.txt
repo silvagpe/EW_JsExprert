@@ -1,0 +1,99 @@
+https://regex101.com/
+
+
+Exemplo 1: 
+----------
+Para selecionar os grupos de números que estão juntos não importando se for começo ou final de linha, ele vai procurar em todo o texto.
+
+\d - usado para pesquisar digitos
+
+\d{3}
+
+
+^ - Identifica começo de linha
+$ - define o final da linha
+Se usar ^\d{3} ele vai procurar em cada começo de linha se existe um grupo de numeros juntos, sem separador
+
+Exemplo para pegar todos os dígitos com a formação
+^\d{3}.\d{3}.\d{3}-\d{2}
+
+123.123.123-14
+321.123.345-01
+200.300.500-19
+
+Para procurar todos os caracteres especiais, para isso podemos usar [] para informar um conjunto de dados "ou" [. 'ou' -] desse jeito ficaria assim [.-]
+
+Exemplo 2: 
+----------
+
+Tranformar um lista de nomes em um json
+
+Rafael, Larissa
+Duke, Tedy
+Beto, Gui
+
+\w qualquer caracter, nesse caso todos os valores de match serão caracteres
+m1: R
+m2: a
+m3: f
+m4: ... assim por diante
+
+\w+ nesse caso ele vai "juntar" os matches em palavras
+m1: Rafael
+m2: Larissa
+
+O . (ponto) é usado para pegar qualquer caracter
+Exemplo, para pegar todas as 'palavras' mais os caracter vírgula, mais o espaço e separar as palavras em grupos podemos usar a seguinte expressão
+(\w+).\s(\w+)
+Nesse exemplo usamos os parênteses para fazer o agrupamento das expressões e resultados então o primeiro grupo (\w+) vai jogar no grupo 1 o valor Rafael e o segundo grupo o valor Larissa
+
+Resultado final: ^(\w+).\s(\w+)$
+
+m1: Rafael, Larissa
+    g1: Rafael
+    g2: Larissa
+m2: Duke, Tedy
+    g1: Duke 
+    g2: Tedy
+
+
+Podemos usar o replace do vscode para transformar o texto abaixo em json usnado o replace 
+
+Silva, Rafael
+Dog, Teddy
+Gomes, Gui
+
+Filtro: ^(\w+).\s(\w+)$
+Replace: {firstname:"$2", lastname:"$1"}
+
+
+Exemplo 3: 
+----------
+
+Transformar links de Markdown em HTML
+
+Texto de exemplo:
+------------------
+O [Rafael Da Silva](http://rafaeldasilva.dev.br) é engenheiro de software que trabalha na [XP Inc](https://www.xpinc.com/) se quiser saber mais sobre mim, vou deixar o link do [Linkedin](https://www.linkedin.com/in/silvagpe/)
+
+Também tenho vários códigos no meu repositório do [Github](https://github.com/silvagpe)
+
+Qualquer coisa é só chamar =)
+
+------------------
+
+Primeiro vamos pegar os valores que estão dentro dos [] para isso precisamos faazer uma pesquisa literal pelos valore '[' ']' e nesse caso usamos a \ para informar que estamos procurando por esse caracter
+
+\[ para encontrar o primeiro colchete, para o segundo podemos usar \], porém o valor que está no meio precisa ser informado na expressão, e podemos usar a expressão (.*?) o resutlado final será \[(.*?)\] com isso ele vai pegar todas as palavras que estão entre [] e jogar nos grupos de cada match
+
+m1: [Rafael Da Silva]
+g1: Rafael Da Silva
+
+Agora vamos pegar os valores dos links
+\(\) para pegar os valores literais dos parentêses
+([http|https].*?) para pegar o valor interno e nesse caso estamos usando a pipe para pegar os valores http ou https
+A expressão completa até agora é \[(.*?)\]\(([http|https].*?)\)
+O valore para replace será <a href="$2">$1</a>
+
+
+
