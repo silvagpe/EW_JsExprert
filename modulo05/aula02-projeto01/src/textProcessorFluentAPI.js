@@ -46,6 +46,11 @@ class TextProcessorFluentAPI {
         
         return this
     }
+    mapPerson() {
+        // passa o array de itens no construtor de pessoa
+        this.#content = this.#content.map(line => new Person(line))
+        return this
+    }
     build() {
         return this.#content
     }
